@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Hollow Mountains - Onderhoud</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">HM</div>
+        <div>
+          <div class="h1">Hollow Mountains - Onderhoudsbeheer</div>
+          <div style="color:var(--muted);font-size:13px;">Demo omgeving — XAMPP</div>
+        </div>
+      </div>
+      <div id="header-actions">
+        <div id="user-info" style="color:var(--muted);font-size:13px;"></div>
+        <button id="btn-logout" class="btn ghost" style="display:none;">Log uit</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section>
+        <div class="card" style="margin-bottom:14px;">
+          <h3>Attracties</h3>
+          <div style="display:flex;gap:8px;margin:10px 0;">
+            <button id="btn-new-attractie" class="btn">Nieuwe attractie</button>
+            <button id="btn-refresh" class="btn ghost">Ververs</button>
+          </div>
+          <table class="table" id="table-attracties">
+            <thead><tr><th>Naam</th><th>Locatie</th><th>Type</th><th>Spec</th><th>Acties</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Taken</h3>
+          <div style="margin:8px 0;">
+            <label>Filter status:
+              <select id="filter-status" class="input">
+                <option value="">Alles</option>
+                <option value="open">Open</option>
+                <option value="in_behandeling">In behandeling</option>
+                <option value="voltooid">Voltooid</option>
+              </select>
+            </label>
+            <button id="btn-filter" class="btn small">Toepassen</button>
+          </div>
+          <table class="table" id="table-taken">
+            <thead><tr><th>Attractie</th><th>Datum</th><th>Status</th><th>Monteur</th><th>Acties</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card" style="margin-bottom:14px;">
+          <h4>Inloggen</h4>
+          <div id="login-box">
+            <div class="form-row"><input id="username" class="input" placeholder="Gebruikersnaam"/></div>
+            <div class="form-row"><input id="password" class="input" type="password" placeholder="Wachtwoord"/></div>
+            <div class="form-row"><button id="btn-login" class="btn">Inloggen</button></div>
+          </div>
+          <div id="logged-box" style="display:none;">
+            <div style="margin-bottom:8px;"><strong id="logged-name"></strong><div id="logged-role" style="color:var(--muted);font-size:13px"></div></div>
+            <button id="btn-profile-edit" class="btn ghost">Profiel</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Nieuwe taak</h4>
+          <div class="form-row">
+            <select id="new-task-attractie" class="input"></select>
+          </div>
+          <div class="form-row"><input id="new-task-datum" type="date" class="input"/></div>
+          <div class="form-row"><select id="new-task-personeel" class="input"></select></div>
+          <div class="form-row"><textarea id="new-task-opmerking" class="input" placeholder="Opmerkingen..."></textarea></div>
+          <div class="form-row"><button id="btn-create-task" class="btn">Maak taak</button></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
