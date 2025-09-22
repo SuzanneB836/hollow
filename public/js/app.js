@@ -56,6 +56,22 @@ document.getElementById('btn-login').addEventListener('click', ()=> {
   if(!u||!p) return alert('Vul gebruikersnaam en wachtwoord in');
   login(u,p).then(loadAll);
 });
+  // Nieuwe attractie toevoegen
+  document.getElementById('btn-new-attractie').addEventListener('click', async () => {
+    // Simpel prompt-formulier, kan later vervangen worden door een modaal
+    const naam = prompt('Naam van attractie:');
+    if (!naam) return;
+    const locatie = prompt('Locatie:');
+    const type = prompt('Type:');
+    const specificaties = prompt('Specificaties:');
+    const res = await apiPost('attracties.php?action=create', { naam, locatie, type, specificaties });
+    if (res.success) {
+      alert('Attractie aangemaakt!');
+      loadAttracties();
+    } else {
+      alert('Fout: ' + (res.message || '')); 
+    }
+  });
 document.getElementById('btn-logout').addEventListener('click', ()=> logout());
 document.getElementById('btn-refresh').addEventListener('click', ()=> loadAll());
 document.getElementById('btn-filter').addEventListener('click', ()=> {
